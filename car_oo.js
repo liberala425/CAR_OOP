@@ -39,14 +39,17 @@ class Garage{
     
     add(vehicle){
         if(vehicle instanceof Vehicle){
-            if(this.vehicles.length === this.capacity) {
+            if(this.vehicles.length >= this.capacity) {
                 return "Sorry, we're full."
             }
             else{
-                this.vehicles.push(vehicle.constructor.name);
+                // push vehicle instance, not the constructor name
+                this.vehicles.push(vehicle); 
+                //this.vehicles.push(vehicle.constructor.name);
+                console.log("Vehicle added!");
             }
         }else{
-            throw new Error("Only vehicles are allowed in here!");
+            return "Only vehicles are allowed in here!";
         }
     }
 }   
